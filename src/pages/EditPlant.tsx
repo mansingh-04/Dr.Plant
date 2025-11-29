@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { plantsAPI } from '../lib/api';
+import { plantsAPI, API_BASE_URL } from '../lib/api';
 import { resizeImage } from '../utils/imageUtils';
 import { Navbar } from '../components/Navbar';
 import { Button } from '../components/ui/button';
@@ -35,7 +35,7 @@ const EditPlant = () => {
     if (plant) {
       setName(plant.name);
       setSpecies(plant.species);
-      setPreview(plant.images?.[0]?.imageUrl ? `http://localhost:3000${plant.images[0].imageUrl}` : DEFAULT_PLANT_IMAGE);
+      setPreview(plant.images?.[0]?.imageUrl ? `${API_BASE_URL}${plant.images[0].imageUrl}` : DEFAULT_PLANT_IMAGE);
     }
   }, [plant]);
 
@@ -74,7 +74,7 @@ const EditPlant = () => {
     } else if (plant?.images?.[0]?.imageUrl) {
       // If user clears selection but there was an existing image, revert to that
       setImage(null);
-      setPreview(plant.images?.[0]?.imageUrl ? `http://localhost:3000${plant.images[0].imageUrl}` : DEFAULT_PLANT_IMAGE);
+      setPreview(plant.images?.[0]?.imageUrl ? `${API_BASE_URL}${plant.images[0].imageUrl}` : DEFAULT_PLANT_IMAGE);
     } else {
       // If user clears selection and there was no existing image, revert to default
       setImage(null);

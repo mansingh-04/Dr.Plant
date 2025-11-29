@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { plantsAPI, logsAPI } from '../lib/api';
+import { plantsAPI, logsAPI, API_BASE_URL } from '../lib/api';
 import { Navbar } from '../components/Navbar';
 import { LogsList } from '../components/LogsList';
 import { AddLogModal } from '../components/AddLogModal';
@@ -101,7 +101,7 @@ const PlantDetails = () => {
     );
   }
 
-  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
   const imageUrl = plant.images?.[0]?.imageUrl
     ? `${API_BASE_URL}${plant.images[0].imageUrl}`
     : null;
@@ -536,7 +536,7 @@ const RecommendationCarousel = ({ recommendations }: { recommendations: any[] })
     console.error("Failed to parse suggestion text", e);
   }
 
-  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
   const displayData = parsedSuggestion || { suggestionText: rec.suggestionText };
   const recImageUrl = rec.plantImage?.id ? `${API_BASE_URL}/plants/images/${rec.plantImage.id}` : null;
 

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { API_BASE_URL } from '../lib/api';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Leaf, Droplets, Calendar, AlertTriangle, CheckCircle } from 'lucide-react';
@@ -7,7 +8,7 @@ const DEFAULT_PLANT_IMAGE = 'https://via.placeholder.com/150?text=No+Image';
 
 export const PlantListItem = ({ plant }: any) => {
     const imageUrl = plant.images?.[0]?.imageUrl
-        ? `http://localhost:3000${plant.images[0].imageUrl}`
+        ? `${API_BASE_URL}${plant.images[0].imageUrl}`
         : DEFAULT_PLANT_IMAGE;
 
     const latestRec = plant.recommendations?.[0];

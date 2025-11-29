@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Leaf, LogOut, User } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import { API_BASE_URL } from '../lib/api';
 import { Button } from './ui/button';
 import { ModeToggle } from './mode-toggle';
 import {
@@ -25,7 +26,7 @@ export const Navbar = () => {
       .slice(0, 2);
   };
 
-  const profileImageUrl = user?.id ? `http://localhost:3000/users/profile-image/${user.id}` : null;
+  const profileImageUrl = user?.id ? `${API_BASE_URL}/users/profile-image/${user.id}` : null;
 
   return (
     <nav className="sticky top-4 z-50 mx-4 mb-6 rounded-2xl glass-panel">

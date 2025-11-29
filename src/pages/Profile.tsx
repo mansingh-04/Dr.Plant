@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { userAPI } from '../lib/api';
+import { userAPI, API_BASE_URL } from '../lib/api';
 import { Navbar } from '../components/Navbar';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
@@ -40,7 +40,7 @@ const Profile = () => {
             .slice(0, 2);
     };
 
-    const profileImageUrl = user?.id ? `http://localhost:3000/users/profile-image/${user.id}` : null;
+    const profileImageUrl = user?.id ? `${API_BASE_URL}/users/profile-image/${user.id}` : null;
 
     // Fetch fresh profile data
     const { data: profileData, refetch } = useQuery({
