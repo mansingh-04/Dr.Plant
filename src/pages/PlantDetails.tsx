@@ -104,7 +104,7 @@ const PlantDetails = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end relative z-10 translate-y-12">
+        <div className="container mx-auto px-4 h-full flex items-end relative z-10 translate-y-12">
           <div className="flex flex-col md:flex-row items-end gap-8 w-full">
             {/* Main Image */}
             <div className="w-48 h-48 md:w-64 md:h-64 shrink-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-white/10 relative group bg-white dark:bg-gray-900">
@@ -193,7 +193,7 @@ const PlantDetails = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 space-y-12">
+      <div className="container mx-auto px-4 mt-8 space-y-12">
         {/* Top Section: Actions, Health History, and Logs */}
         <div className="grid lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {/* Left Column: Actions & Health History */}
