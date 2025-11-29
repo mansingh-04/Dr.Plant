@@ -5,8 +5,9 @@ import { Leaf, Droplets, AlertTriangle, CheckCircle } from 'lucide-react';
 const DEFAULT_PLANT_IMAGE = 'https://via.placeholder.com/150?text=No+Image';
 
 export const PlantCard = ({ plant }: any) => {
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const imageUrl = plant.images?.[0]?.imageUrl
-    ? `http://localhost:3000${plant.images[0].imageUrl}`
+    ? `${API_BASE_URL}${plant.images[0].imageUrl}`
     : DEFAULT_PLANT_IMAGE;
 
   const latestRec = plant.recommendations?.[0];

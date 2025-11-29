@@ -101,8 +101,9 @@ const PlantDetails = () => {
     );
   }
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const imageUrl = plant.images?.[0]?.imageUrl
-    ? `http://localhost:3000${plant.images[0].imageUrl}`
+    ? `${API_BASE_URL}${plant.images[0].imageUrl}`
     : null;
 
   return (
@@ -535,8 +536,9 @@ const RecommendationCarousel = ({ recommendations }: { recommendations: any[] })
     console.error("Failed to parse suggestion text", e);
   }
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
   const displayData = parsedSuggestion || { suggestionText: rec.suggestionText };
-  const recImageUrl = rec.plantImage?.id ? `http://localhost:3000/plants/images/${rec.plantImage.id}` : null;
+  const recImageUrl = rec.plantImage?.id ? `${API_BASE_URL}/plants/images/${rec.plantImage.id}` : null;
 
   return (
     <div className="relative">
