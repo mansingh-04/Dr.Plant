@@ -35,7 +35,9 @@ export const AIAnalyzeModal = ({ open, onClose, plantId, species, initialImage }
         toast({ title: 'Analyzing...', description: 'AI is processing your plant image.' });
       }
 
+      console.log('Frontend: Sending analyze request for plantId:', plantId, 'force:', forceReanalyze);
       const response = await plantsAPI.analyzeImage(plantId, { force: forceReanalyze });
+      console.log('Frontend: Received response:', response);
       const responseData = response.data;
 
       if (responseData.status === 'cached' && !forceReanalyze) {
@@ -48,10 +50,11 @@ export const AIAnalyzeModal = ({ open, onClose, plantId, species, initialImage }
         toast({ title: 'Analysis complete!', description: 'Check the results below' });
         setShowReanalyzeConfirm(false);
       }
-    } catch (error) {
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.error || 'Could not analyze the image';
       toast({
         title: 'Analysis failed',
-        description: 'Could not analyze the image',
+        description: errorMessage,
         variant: 'destructive',
       });
       setShowReanalyzeConfirm(false);
