@@ -6,6 +6,7 @@ import { Navbar } from '../components/Navbar';
 import { PlantCard } from '../components/PlantCard';
 import { PlantListItem } from '../components/PlantListItem';
 import { Button } from '../components/ui/button';
+import { Loading } from '../components/Loading';
 import { Skeleton } from '../components/ui/skeleton';
 import { Input } from '../components/ui/input';
 import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink, PaginationEllipsis } from '../components/ui/pagination';
@@ -216,18 +217,8 @@ const Plants = () => {
 
         {/* Content */}
         {isLoading ? (
-          <div className={viewMode === 'grid' ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" : "space-y-4"}>
-            {[...Array(itemsPerPage)].map((_, i) => (
-              viewMode === 'grid' ? (
-                <div key={i} className="space-y-3">
-                  <Skeleton className="aspect-square w-full rounded-2xl" />
-                  <Skeleton className="h-4 w-3/4" />
-                  <Skeleton className="h-3 w-1/2" />
-                </div>
-              ) : (
-                <Skeleton key={i} className="h-32 w-full rounded-2xl" />
-              )
-            ))}
+          <div className="py-20">
+            <Loading message="Gathering your plants..." fullScreen={false} />
           </div>
         ) : plants && plants.length > 0 ? (
           viewMode === 'grid' ? (

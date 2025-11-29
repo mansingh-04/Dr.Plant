@@ -5,6 +5,7 @@ import { plantsAPI, logsAPI, API_BASE_URL } from '../lib/api';
 import { Navbar } from '../components/Navbar';
 import { LogsList } from '../components/LogsList';
 import { AddLogModal } from '../components/AddLogModal';
+import { Loading } from '../components/Loading';
 import { AIAnalyzeModal } from '../components/AIAnalyzeModal';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
@@ -68,23 +69,7 @@ const PlantDetails = () => {
   });
 
   if (isLoading) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Navbar />
-        <div className="container mx-auto px-4 py-8">
-          <Skeleton className="h-[300px] w-full rounded-3xl mb-8" />
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-6">
-              <Skeleton className="h-64 rounded-2xl" />
-              <Skeleton className="h-64 rounded-2xl" />
-            </div>
-            <div className="space-y-6">
-              <Skeleton className="h-96 rounded-2xl" />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <Loading message="Fetching plant details..." />;
   }
 
   if (!plant) {
