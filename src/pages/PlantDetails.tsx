@@ -97,12 +97,14 @@ const PlantDetails = () => {
 
       {/* Hero Section */}
       <div className="relative w-full h-[40vh] min-h-[350px] mb-20">
-        {/* Blurred Background */}
-        <div
-          className="absolute inset-0 bg-cover bg-center blur-2xl opacity-40 dark:opacity-20 scale-110"
-          style={{ backgroundImage: imageUrl ? `url(${imageUrl})` : 'none', backgroundColor: imageUrl ? 'transparent' : 'var(--primary)' }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
+        {/* Blurred Background Wrapper */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center blur-2xl opacity-40 dark:opacity-20 scale-110"
+            style={{ backgroundImage: imageUrl ? `url(${imageUrl})` : 'none', backgroundColor: imageUrl ? 'transparent' : 'var(--primary)' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
+        </div>
 
         <div className="container mx-auto px-4 h-full flex items-end relative z-10 translate-y-12">
           <div className="flex flex-col md:flex-row items-end gap-8 w-full">
