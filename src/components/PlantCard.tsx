@@ -92,7 +92,7 @@ export const PlantCard = ({ plant }: any) => {
               <div className="p-1.5 bg-blue-500/10 rounded-full">
                 <Droplets className="w-3.5 h-3.5 text-blue-500" />
               </div>
-              <span>{plant.logs?.length || 0} logs</span>
+              <span>{plant.logCount !== undefined ? plant.logCount : (plant.logs?.length || 0)} logs</span>
             </div>
           </div>
         </CardContent>

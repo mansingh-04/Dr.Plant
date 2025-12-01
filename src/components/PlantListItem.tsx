@@ -14,7 +14,7 @@ export const PlantListItem = ({ plant }: any) => {
     const latestRec = plant.recommendations?.[0];
     // Check if disease string exists and is NOT "Healthy" (case insensitive)
     const hasDisease = latestRec && latestRec.disease && !latestRec.disease.toLowerCase().includes('healthy');
-    const logCount = plant.logs?.length || 0;
+    const logCount = plant.logCount !== undefined ? plant.logCount : (plant.logs?.length || 0);
 
     return (
         <Link to={`/plants/${plant.id}`} className="group block mb-4">
