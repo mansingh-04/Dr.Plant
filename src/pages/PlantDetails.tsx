@@ -107,12 +107,14 @@ const PlantDetails = () => {
         </div>
 
         <div className="container mx-auto px-4 h-full flex flex-col justify-end pb-8 relative z-10 translate-y-12">
-          <Link to="/plants" className="absolute top-[-200px] left-4 md:left-0 z-20">
-            <Button variant="secondary" size="sm" className="rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-md border border-white/10">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Garden
-            </Button>
-          </Link>
+          <div className="absolute top-4 left-4 z-20">
+            <Link to="/plants">
+              <Button variant="secondary" size="sm" className="rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-md border border-white/10">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Garden
+              </Button>
+            </Link>
+          </div>
           <div className="flex flex-col md:flex-row items-end gap-8 w-full">
             {/* Main Image */}
             <div className="w-48 h-48 md:w-64 md:h-64 shrink-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-white/10 relative group bg-white dark:bg-gray-900">
